@@ -7,7 +7,7 @@ RFID_LIB_DIR:= -L./lib
 RFID_LIB:= -lcomPro
 JSON_LIB_DIR:= -I./json-c-build
 JSON_LIB:= -ljson-c
-LDFLAGS:= $(RFID_LIB_DIR) $(RFID_LIB) $(JSON_LIB_DIR) $(JSON_LIB) -lcurl
+LDFLAGS:= $(RFID_LIB_DIR) $(RFID_LIB) $(JSON_LIB_DIR) $(JSON_LIB) -lcurl -Wl,-rpath,./lib
 
 INCLUDE_DIR:= -I./inc/nfc  \
 	         -I./inc/json
