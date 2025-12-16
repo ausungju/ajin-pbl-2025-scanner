@@ -3,19 +3,26 @@ NAME:= nfc_reader
 CC:= gcc
 CFLAGS:= -Wall -Wextra -Werror -g
 
-LIB_DIR:= -L./lib
-LIBS:= -lcomPro
-INCLUDE_DIR:= -I./include
+RFID_LIB_DIR:= -L./lib
+RFID_LIB:= -lcomPro
+JSON_LIB_DIR:= -I./json-c-build
+JSON_LIB:= -ljson-c
+LDFLAGS:= $(RFID_LIB_DIR) $(RFID_LIB) $(JSON_LIB_DIR) $(JSON_LIB) -lcurl
 
-SRCS:=	main.c \
-		rfid.c	\
-		barcode.c \
-		utils.c
+INCLUDE_DIR:= -I./inc/nfc  \
+	         -I./inc/json
+
+SRCS:=	src/main.c \
+		src/rfid.c	\
+		src/barcode.c \
+		src/API.c \
+		src/utils.c \
+		src/init.c
 
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	$(CC) $(CFLAGS) $(INCLUDE_DIR) $^ -o $@ $(LIB_DIR) $(LIBS) $(LDFLAGS)
+	@ $(CC) $(CFLAGS) $(INCLUDE_DIR) $^ -o $@ $(LDFLAGS)
 
 clean:
 	rm -f $(NAME)
