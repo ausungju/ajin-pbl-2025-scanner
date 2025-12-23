@@ -41,7 +41,7 @@
 
 # define API_URL_READER_STATUS		"http://10.143.2.7:8000/api/v1/rfid/reader-status"
 # define API_URL_SCAN_DATA			"http://10.143.2.7:8000/api/v1/rfid/scan"
-# define API_STATUS_SEND_INTERVAL	5 // seconds
+# define API_STATUS_SEND_INTERVAL	10 // seconds
 
 typedef struct s_data
 {
