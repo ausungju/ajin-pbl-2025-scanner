@@ -26,3 +26,5 @@ $(NAME): $(SRCS)
 
 clean:
 	rm -f $(NAME)
+
+re: clean all
